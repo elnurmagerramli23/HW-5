@@ -4,26 +4,30 @@ function ArrayList() {
 };
 ArrayList.prototype.init = function(array) {
     if (!array) return 'Please input an array';
+
     this.array = array;
     this.size = array.length;
+
     return array;
 };
 ArrayList.prototype.clearObject = function() {
     this.array = [];
     this.size = 0;
+
     return this.array;
 };
 ArrayList.prototype.addAtEnd = function(arrElm) {
     if (!arrElm) return 'Please input an array';
-    
     const array = this.array;
 
     array[array.length] = arrElm;
     this.size = array.length;
+
     return array;
 };
 ArrayList.prototype.deleteFromEnd = function() {
     const array = this.array;
+
     array.length = [array.length - 1];
     this.size = array.length;
     
@@ -36,10 +40,11 @@ ArrayList.prototype.deleteFirst = function() {
     for (let i = 1; i < array.length; i++) {
         deleted[i-1] = array[i] 
     };
+
     this.array = deleted;
     this.size -= 1;
 
-    return array
+    return array;
 };
 ArrayList.prototype.addToFirst = function(argument) {
     if (!argument) return 'Please check your input';
@@ -49,6 +54,7 @@ ArrayList.prototype.addToFirst = function(argument) {
     for (let i = 0; i < array.length; i++) {
         newArr[i+1] = array[i]
     };
+
     this.array = newArr;
     this.size += 1;
     
@@ -61,6 +67,7 @@ ArrayList.prototype.revArr = function() {
     for (let i = array.length - 1; i >= 0; i--) {
         newArr[newArr.length] = array[i]
     };
+
     this.array = newArr;
     this.size = newArr.length;
     
@@ -72,7 +79,7 @@ ArrayList.prototype.checkForInclude = function(argument) {
 
     for (let i = 0; i < array.length; i++) {
         if (argument === array[i]) return 'true';
-    }
+    };
 
     return 'false';
 };
@@ -83,13 +90,13 @@ ArrayList.prototype.checkForIndex = function(argument) {
     for (let i = 0; i < array.length; i++) {
         if (argument === array[i]) return i
     };
-
     this.size = array.length;
 
     return '-1';
 };
 ArrayList.prototype.changeToString = function() {
     const array = this.array;
+
     return '' + array;
 };
 ArrayList.prototype.getSliceAction = function(start, end) {
@@ -98,15 +105,16 @@ ArrayList.prototype.getSliceAction = function(start, end) {
     let newArr = [];
     let counter = 0;
     
-    if(end) {
+    if (end) {
         for (let i = start; i < end; i++) {
             newArr[counter++] = array[i]
-        }
+        };
     } else {
         for (let i = start; i < array.length; i++) {
             newArr[counter++] = array[i];
         }
     };
+    
     this.array = newArr;
     this.size = newArr.length;
 
